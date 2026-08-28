@@ -1,0 +1,166 @@
+METRICS:
+
+Spontaneous to organzied metric /120 for list view
+Wallpaper metric: COLOR metric comes from bitmap of wallpaper- hand in hand, wallpaper is cumulative
+top bar is top x apps where there is a large jump, 1-4, except if theres no sig jump in top 1-4 default to 3
+grid is 5% of apps per row. justify
+
+/*
+“Each time an app is opened from the launcher, add 1 to that app’s lifetime bucket for the current hour of day. To choose which widget to show, give every app used at least once in the last week a base weight of 1, then add the app’s lifetime open count in the current hour bucket. So if an app has 8 lifetime opens in the 5:00-6:00 PM bucket, its score at that hour is 9. Hour buckets never reset.
+Wallpaper Recommendation System
+----------------------------------------
+
+This system learns the user's wallpaper preferences over time
+using a simple reinforcement learning approach combined with
+confidence estimation.
+
+----------------------------------------
+1. CATEGORY SCORES
+----------------------------------------
+
+Each wallpaper category has a preference score.
+
+Initial score: 10
+Score bounds: 1 – 30
+
+User feedback adjusts scores:
+
+Like      → +1
+Dislike   → -1
+
+Scores are clamped between 1 and 30 so that:
+
+• categories never disappear completely
+• runaway scores are prevented
+• learning remains stable
+
+----------------------------------------
+2. CATEGORY SELECTION
+----------------------------------------
+
+When choosing a wallpaper category, we perform
+weighted random selection.
+
+Weight = score
+
+Example:
+
+cyberpunk = 20
+nature = 12
+food = 5
+
+Weighted probability becomes roughly:
+
+cyberpunk ≈ 54%
+nature ≈ 32%
+food ≈ 14%
+
+Higher-scoring categories appear more often,
+but all categories remain possible.
+
+----------------------------------------
+3. WALLPAPER SELECTION
+----------------------------------------
+
+Once a category is chosen, a random wallpaper
+from that category is selected.
+
+Fallback:
+
+If no wallpapers exist in that category,
+a completely random wallpaper is returned.
+
+----------------------------------------
+4. CONFIDENCE ESTIMATION
+----------------------------------------
+
+The system measures how confident it is in the
+user's preferences using the statistical
+variance of category scores.
+
+Variance measures how spread out the scores are.
+
+Examples:
+
+Low variance (uncertain preferences)
+10,10,10,10,10,10,10,10,10,10
+
+High variance (clear preferences)
+2,3,4,6,8,14,18,22,26,30
+
+The maximum possible variance for scores in
+range [1,30] is:
+
+210.25
+
+Confidence is computed as:
+
+confidence = variance / 210.25
+
+This produces a normalized confidence value
+between 0 and 1.
+
+----------------------------------------
+5. FEEDBACK DIALOG PROBABILITY
+----------------------------------------
+
+The system decides whether to ask for feedback
+based on the confidence value.
+
+Probability formula:
+
+p = 0.20 − 0.16 × confidence²
+
+This produces:
+
+Most uncertain (variance ≈ 0)
+→ dialog probability ≈ 20%
+
+Moderate confidence
+→ dialog probability gradually decreases
+
+Most confident (variance ≈ 210.25)
+→ dialog probability ≈ 4%
+
+The squared term makes the curve drop slowly
+at first and faster later, which results in:
+
+• frequent feedback early
+• moderate feedback while learning
+• very rare feedback once preferences are clear
+
+----------------------------------------
+6. LEARNING BEHAVIOR
+----------------------------------------
+
+Early stage:
+Scores are similar → low variance
+→ system asks for feedback frequently
+
+Learning stage:
+Some categories rise or fall
+→ variance increases
+→ feedback requests decrease
+
+Stable stage:
+Strong preference pattern detected
+→ variance high
+→ feedback almost never requested
+
+----------------------------------------
+7. DESIGN GOALS
+----------------------------------------
+
+This design ensures:
+
+• simple implementation
+• smooth adaptation to user taste
+• minimal user annoyance
+• long-term stability
+• no category ever disappears
+• recommendations remain diverse
+
+The system gradually converges toward
+the user's preferred wallpaper styles
+while still allowing occasional variety.
+*/

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Synapse UX</string>
+    <string name="accessibility_service_description">Lets Synapse UX display the Home Button. No data is collected.</string>
+</resources>

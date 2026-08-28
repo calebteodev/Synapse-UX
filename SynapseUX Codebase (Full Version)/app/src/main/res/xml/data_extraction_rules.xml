@@ -1,0 +1,14 @@
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="sharedpref" path="launcher_settings.preferences_pb" />
+        <include domain="sharedpref" path="menu_reminders.preferences_pb" />
+        <include domain="sharedpref" path="review_prompt.preferences_pb" />
+        <include domain="sharedpref" path="wallpaper_cache.preferences_pb" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="sharedpref" path="launcher_settings.preferences_pb" />
+        <include domain="sharedpref" path="menu_reminders.preferences_pb" />
+        <include domain="sharedpref" path="review_prompt.preferences_pb" />
+        <include domain="sharedpref" path="wallpaper_cache.preferences_pb" />
+    </device-transfer>
+</data-extraction-rules>

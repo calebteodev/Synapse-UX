@@ -1,0 +1,6 @@
+<full-backup-content>
+    <include domain="sharedpref" path="launcher_settings.preferences_pb" />
+    <include domain="sharedpref" path="menu_reminders.preferences_pb" />
+    <include domain="sharedpref" path="review_prompt.preferences_pb" />
+    <include domain="sharedpref" path="wallpaper_cache.preferences_pb" />
+</full-backup-content>

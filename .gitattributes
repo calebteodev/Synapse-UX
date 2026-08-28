@@ -1,0 +1,2 @@
+deliverables/*.apk filter=lfs diff=lfs merge=lfs -text
+deliverables/*.m4v filter=lfs diff=lfs merge=lfs -text
