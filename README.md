@@ -1,6 +1,8 @@
 # SynapseUX
 
-SynapseUX is a gesture-driven Android launcher built by Caleb Teo, developed as a full mobile application development project. It reimagines the home-screen experience with fluid gestures and a customisable, distraction-light UX.
+SynapseUX is a gesture-driven Android launcher built by Caleb Teo, developed as a full-stack Android application development project for the NUS High module CS4131 Mobile Application Development. It reimagines the home-screen experience with fluid gestures and an adaptive, dynamically and automaticallycustomized UX.
+
+This project was awarded **A+**
 
 ## Repository layout
 
