@@ -2,7 +2,7 @@
 
 SynapseUX is an Android launcher built by Caleb Teo, developed as a full-stack Android application development project for the NUS High module CS4131 Mobile Application Development, built February–April 2026. It reimagines the home-screen experience with fluid gestures and an adaptive, dynamically and automatically customized UX.
 
-This project was awarded **A+**
+This project was awarded **A+** by the lecturer, Mr Claude R. Chua.
 
 ## Repository layout
 
